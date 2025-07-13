@@ -2,12 +2,7 @@
   "version": 2,
   "functions": {
     "api/index.py": {
-      "runtime": "@vercel/python",
-      "includeFiles": [
-        "api/**",
-        "Model/**",
-        "Schema/**"
-      ]
+      "runtime": "@vercel/python"
     }
   },
   "routes": [
