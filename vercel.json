@@ -1,14 +1,27 @@
 {
   "version": 2,
-  "functions": {
-    "api/index.py": {
-      "runtime": "@vercel/python"
+  "builds": [
+    {
+      "src": "api/index.py",
+      "use": "@vercel/python",
+      "config": {
+        "runtime": "python3.11",
+        "includeFiles": [
+          "api/index.py",
+          "Model/prediction.py",
+          "Model/*.pkl",
+          "Schema/PydanticValidation.py",
+          "Schema/ResponseModel.py",
+          "requirements.txt"
+        ],
+        "maxDuration": 30
+      }
     }
-  },
+  ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "api/index.py"
+      "dest": "/api/index.py"
     }
   ]
 }
